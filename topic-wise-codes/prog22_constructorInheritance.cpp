@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+class Base
+{
+public:
+    Base() { cout << "Non-param Base" << endl; }
+    Base(int x) { cout << "Param of Base " << x << endl; }
+};
+
+class Derived : public Base
+{
+public:
+    Derived() { cout << "Non-Param Derived" << endl; }
+    Derived(int y) { cout << "Param of Derived " << y << endl; }
+
+    Derived(int x, int y) : Base(x)
+    {
+        cout << "Param of Derived " << y << endl;
+    }
+};
+
+int main()
+{
+    // Calling Non Parameterized Constructor
+    // Derived d;
+
+    // Calling Parameterized constructor but Non parameterized of Base and Parameterized of Derived will be called
+    // Derived d(10); 
+
+    // Calling parameterized constructor of both classes
+     Derived d(5, 10);
+}
